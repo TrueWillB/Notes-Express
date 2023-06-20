@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 // const termData = require('./db/terms.json');
-const PORT = 3000;
+const PORT = 3001;
 const app = express();
 
 //Middleware for parsing data. the two lines below give the ability to parse JSON or urlencoded format
@@ -26,6 +26,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
+//I found this info online. You have to use a port dynamically set by heroku, or 3001 if running locally
 app.listen(process.env.PORT || 3000, function () {
   console.log(
     "Express server listening on port %d in %s mode",

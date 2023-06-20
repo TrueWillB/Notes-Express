@@ -35,6 +35,8 @@ notes.post("/", (req, res) => {
   }
 });
 
+//THIS SECTION IS STILL NOT COMPLETE. The proper note is deleted from the db file, however, I cannot seem to get the app to recognize and refresh.
+// I'm not sure if the problem is something missing from this delete request, or the fetch is set up wrong, or there is something in the index.js when deleteNote() is invoked. I am at a loss
 notes.delete("/:id", (req, res) => {
   console.log(`This is the id of the note to be deleted: ${req.params.id}`);
   let noteId = req.params.id;
