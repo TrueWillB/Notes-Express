@@ -4,6 +4,8 @@
 
 ### Deployed at https://mysterious-waters-07373-8f47b936e2e9.herokuapp.com/
 
+![Screenshot of app](./readmeImages/screenshot.png)
+
 ## Table of Contents
 
 - [Description](#description)
@@ -14,6 +16,7 @@
 ## Description
 
 This is a simple notes app that allows you to store and delete notes. It was made as an assignment as part of my full stack bootcamp program to demonstrate the functioning of express.js
+The app is fully functioning. One can add as many notes as they like, and the delete button works as expected. Hopefully you find it useful!
 
 ## Installation
 
