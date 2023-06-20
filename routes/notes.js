@@ -1,7 +1,11 @@
 const notes = require("express").Router();
 //from now on, notes is the router pointing at /api/notes
 const uuid = require("../helpers/uuid");
-const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+const {
+  readFromFile,
+  readAndAppend,
+  writeToFile,
+} = require("../helpers/fsUtils");
 
 //This defines what happens when a "GET" request is invoked on the /api/notes route
 notes.get("/", (req, res) => {
@@ -38,18 +42,15 @@ notes.delete("/:id", (req, res) => {
   readFromFile("./db/db.json")
     .then((data) => {
       // console.log(`This is the data: ${data}`);
-      return data;
+      return JSON.parse(data);
     })
     .then((currentNotes) => {
       //This puts the index of the note to be deleted into "indexToDelete"
       console.log(`This is the array before deleting: ${currentNotes}`);
 
-      let indexToDelete = currentNotes.findIndex(
-        (noteObj) => noteObj.id == noteId
-      );
+      let indexToDelete = currentNotes.findIndex((note) => note.id === noteId);
       console.log(
         `This is the index of the note to be deleted: ${indexToDelete}`
-        // `This is the note id of the note to be deleted: ${noteID}`
       );
       if (indexToDelete > -1) {
         currentNotes.splice(indexToDelete, 1); //Deletes the note from the array
