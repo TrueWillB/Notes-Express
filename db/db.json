@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    {
+        "title": "First added note",
+        "text": "This note was added directly using the API",
+        "note_id": "2002"
+    },
+    {
+        "title": "Second added note",
+        "text": "This note was added directly using the API, the second of these",
+        "note_id": "4c72"
+    }
+]
