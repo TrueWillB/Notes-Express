@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 // const termData = require('./db/terms.json');
-const PORT = 3001;
+const PORT = 3000;
 const app = express();
 
 //Middleware for parsing data. the two lines below give the ability to parse JSON or urlencoded format
