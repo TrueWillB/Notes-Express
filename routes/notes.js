@@ -34,8 +34,7 @@ notes.post("/", (req, res) => {
   }
 });
 
-//THIS SECTION IS STILL NOT COMPLETE. The proper note is deleted from the db file, however, I cannot seem to get the app to recognize and refresh.
-// I'm not sure if the problem is something missing from this delete request, or the fetch is set up wrong, or there is something in the index.js when deleteNote() is invoked. I am at a loss
+//This defines the delete behavior for the /api/notes route. A json response is needed for the delete request to work properly
 notes.delete("/:id", (req, res) => {
   let noteId = req.params.id;
   readFromFile("./db/db.json")
@@ -50,6 +49,8 @@ notes.delete("/:id", (req, res) => {
         currentNotes.splice(indexToDelete, 1); //Deletes the note from the array
         writeToFile("./db/db.json", currentNotes); //This writes the array back to the db.json file
       }
+      res.json(`Note deleted successfully, ID = ${noteId}`);
+      console.log(`Note deleted successfully, ID = ${noteId}`);
     });
 });
 
