@@ -5,7 +5,6 @@ let newNoteBtn;
 let noteList;
 
 if (window.location.pathname === "/notes") {
-  console.log("Stuff has been defined correctly");
   noteTitle = document.querySelector(".note-title");
   noteText = document.querySelector(".note-textarea");
   saveNoteBtn = document.querySelector(".save-note");
@@ -55,11 +54,9 @@ const deleteNote = (id) =>
 // const renderActiveNote = () => {
 //Had to change function to include "activeNote" as a parameter
 const renderActiveNote = (activeNote) => {
-  console.log(`Active Note id is: ${activeNote.id}`);
   hide(saveNoteBtn);
 
   if (activeNote.id) {
-    console.log("entered if statement");
     noteTitle.setAttribute("readonly", true);
     noteText.setAttribute("readonly", true);
     noteTitle.value = activeNote.title;
@@ -106,7 +103,6 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute("data-note"));
-  // console.log();
   renderActiveNote(activeNote);
 };
 
@@ -128,7 +124,6 @@ const handleRenderSaveBtn = () => {
 //needs to save note data into data-note attribute
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
-  console.log(`This is the jsonNotes array length: ${jsonNotes}`);
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
   }
@@ -157,8 +152,6 @@ const renderNoteList = async (notes) => {
         "delete-note"
       );
       delBtnEl.addEventListener("click", handleNoteDelete);
-
-      // delBtnEl.addEventListener("click", console.log("delete button clicked"));
 
       liEl.append(delBtnEl);
     }
